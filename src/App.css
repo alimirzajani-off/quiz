@@ -49,3 +49,16 @@ body{
     transform: rotate(360deg);
   }
 }
+
+.input_group{
+  border-bottom: 1px solid #eee;
+  padding: 10px 0 10px 0;
+}
+
+.label_input_group{
+  padding-left: 10px;
+}
+
+.test{
+  transition-timing-function: linear;
+}

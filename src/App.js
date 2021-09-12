@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { TransitionGroup, CSSTransition } from 'react-transition-group'
 import QuestionQuiz from './Component/QuestionQuiz';
 import CounterQuiz from './Component/CounterQuiz';
 import AnswerQuiz from './Component/AnswerQuiz';
@@ -69,16 +70,18 @@ const App = () => {
 
   const renderQuestion = () => {
     return (
-      <>
-        <CounterQuiz questionId={QuestionId} total={total} />
-        <QuestionQuiz question={Question} />
-        <AnswerQuiz counter={Counter} answer={Answer} handleAnswerSelect={handleAnswerSelect} />
-      </>
+      <div className="test">
+        <TransitionGroup>
+            <CounterQuiz questionId={QuestionId} total={total} />
+            <QuestionQuiz question={Question} />
+            <AnswerQuiz counter={Counter} answer={Answer} handleAnswerSelect={handleAnswerSelect} />
+        </TransitionGroup>
+      </div>
     )
   }
- 
-  const renderResult=()=>{
-    return(
+
+  const renderResult = () => {
+    return (
       <div>you prefer {Result}!</div>
     )
   }
@@ -90,7 +93,7 @@ const App = () => {
         <p>Mirza Quiz</p>
       </header>
       <div className="q-body">
-      {Result?renderResult():renderQuestion()}
+        {Result ? renderResult() : renderQuestion()}
       </div>
     </div>
   );
